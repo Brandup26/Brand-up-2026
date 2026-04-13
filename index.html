@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brand Up | Elevate Your Business</title>
     
-    <link rel="icon" type="image/png" href="https://i.ibb.co/XkyV7R0/1000155098.jpg">
-    <link rel="apple-touch-icon" href="https://i.ibb.co/XkyV7R0/1000155098.jpg">
-    
-    <meta property="og:image" content="https://i.ibb.co/XkyV7R0/1000155098.jpg">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <meta property="og:image" content="logo.jpg">
     <meta property="og:title" content="Brand Up Marketing">
 
     <style>
@@ -22,7 +21,7 @@
         body {
             background-color: var(--bg-black);
             color: var(--text-white);
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -76,11 +75,24 @@
         .sidebar h4 { color: var(--gold); padding: 0 30px; margin-top: 20px; }
         .sidebar .close-btn { position: absolute; top: 10px; left: 20px; font-size: 40px; color: var(--gold); cursor: pointer; }
 
-        /* الهيدر */
+        /* الهيدر الرئيسي مع اللوجو المستدير */
         header { text-align: center; padding: 40px 20px; }
-        .main-logo { width: 120px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 10px; box-shadow: 0 0 15px rgba(242, 183, 5, 0.2); }
+        .logo-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(242, 183, 5, 0.2);
+        }
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        /* الباقات (تصميمك المعتمد جنب بعض) */
+        /* الباقات (تصميمك المعتمد جنب بعض تماماً) */
         .packages-grid {
             max-width: 1000px;
             margin: 0 auto;
@@ -96,6 +108,8 @@
             border-radius: 15px;
             padding: 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
         }
 
         .pkg-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; }
@@ -103,7 +117,7 @@
         .old-price { text-decoration: line-through; color: #666; font-size: 0.9rem; }
         .new-price { font-size: 2.2rem; font-weight: bold; color: var(--gold); display: block; }
 
-        .details-list { list-style: none; padding: 0; text-align: right; font-size: 0.85rem; }
+        .details-list { list-style: none; padding: 0; text-align: right; font-size: 0.85rem; flex-grow: 1; }
         .details-list li { padding: 8px 0; border-bottom: 1px solid #1a1a1a; }
         .details-list li::before { content: "●"; color: var(--gold); margin-left: 8px; }
 
@@ -126,7 +140,7 @@
     <div id="sideNav" class="sidebar">
         <span class="close-btn" onclick="closeNav()">&times;</span>
         <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://i.ibb.co/XkyV7R0/1000155098.jpg" width="80" style="border-radius: 50%; border: 1px solid var(--gold);">
+            <img src="logo.jpg" width="80" style="border-radius: 50%; border: 1px solid var(--gold);">
         </div>
         
         <h4>خدماتنا</h4>
@@ -144,9 +158,11 @@
     </div>
 
     <header>
-        <img src="https://i.ibb.co/XkyV7R0/1000155098.jpg" class="main-logo">
-        <h1 style="margin: 0;">BRAND UP</h1>
-        <p style="color: var(--gold); margin: 5px 0;">ELEVATE YOUR BUSINESS</p>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Brand Up Logo">
+        </div>
+        <h1 style="margin: 0; letter-spacing: 2px;">BRAND UP</h1>
+        <p style="color: var(--gold); margin: 5px 0; font-weight: bold;">ELEVATE YOUR BUSINESS</p>
     </header>
 
     <h3 style="text-align: center;">باقات السوشيال ميديا</h3>
@@ -191,10 +207,14 @@
         </div>
     </div>
 
+    <div style="text-align: center; padding: 40px; color: var(--gold); font-weight: bold;">
+        🔥 خصم 10% عند التعاقد لمدة 3 شهور!
+    </div>
+
     <script>
         function openNav() { 
             document.getElementById("sideNav").style.width = "280px";
-            // إضافة حالة للتاريخ عشان زر الرجوع يقفل القائمة
+            // حل مشكلة زر الرجوع
             window.history.pushState({sideNav: "open"}, "");
         }
 
@@ -202,7 +222,7 @@
             document.getElementById("sideNav").style.width = "0";
         }
 
-        // مراقبة زر الرجوع في الموبايل
+        // إغلاق القائمة عند ضغط زر الرجوع في الموبايل بدل الخروج من الموقع
         window.onpopstate = function(event) {
             closeNav();
         };
