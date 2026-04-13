@@ -10,6 +10,8 @@
     <meta property="og:image" content="logo.jpg">
     <meta property="og:title" content="Brand Up Marketing">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         :root {
             --gold: #f2b705;
@@ -27,6 +29,7 @@
             overflow-x: hidden;
         }
 
+        /* زر الثلاث شرط الثابت */
         .fixed-menu-btn {
             position: fixed;
             top: 20px;
@@ -48,6 +51,7 @@
             border-radius: 2px;
         }
 
+        /* القائمة الجانبية */
         .sidebar {
             height: 100%; width: 0;
             position: fixed; z-index: 2000;
@@ -73,6 +77,7 @@
         .sidebar h4 { color: var(--gold); padding: 0 30px; margin-top: 20px; margin-bottom: 10px; border-bottom: 1px solid var(--gold); display: inline-block; margin-right: 30px; }
         .sidebar .close-btn { position: absolute; top: 10px; left: 20px; font-size: 40px; color: var(--gold); cursor: pointer; }
 
+        /* الهيدر الرئيسي */
         header { text-align: center; padding: 40px 20px; }
         .logo-container {
             width: 130px;
@@ -83,12 +88,9 @@
             overflow: hidden;
             box-shadow: 0 0 20px rgba(242, 183, 5, 0.2);
         }
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .logo-container img { width: 100%; height: 100%; object-fit: cover; }
 
+        /* الباقات (تصميمك المعتمد جنب بعض) */
         .packages-grid {
             max-width: 1000px;
             margin: 0 auto;
@@ -120,24 +122,53 @@
         .gift-box { background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 10px; border-radius: 8px; font-size: 0.8rem; margin: 10px 0; font-weight: bold; }
         .wa-button { display: block; background: #25d366; color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; }
 
+        /* تذييل الصفحة والسوشيال ميديا */
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #050505;
+            border-top: 1px solid rgba(242, 183, 5, 0.1);
+        }
+
+        .social-circles {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-circles a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #111;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .social-circles a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            box-shadow: 0 0 10px rgba(242, 183, 5, 0.3);
+            transform: translateY(-3px);
         }
 
         .footer-text {
             color: #555;
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: 1px;
-            font-family: 'Arial', sans-serif;
             font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        .footer-text span {
-            color: var(--gold);
-        }
+        .footer-text span { color: var(--gold); }
 
         @media (max-width: 600px) {
             .packages-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -170,8 +201,6 @@
         <a href="tel:01272785618">📞 01272785618</a>
         <a href="tel:01019482687">📞 01019482687</a>
         <a href="https://wa.me/message/YOW5PA3ULKTLH1">💬 واتساب الوكالة</a>
-        
-        <div style="padding: 20px; font-size: 0.8rem; color: #555;">الشرقية - الزقازيق</div>
     </div>
 
     <header>
@@ -213,7 +242,7 @@
                 <li>إدارة منصات السوشيال ميديا</li>
                 <li>تهيئة وتحسين المنصات</li>
                 <li>غلاف جديد للبيج</li>
-                <li>10 تصاميم احترافي</li>
+                <li>10 تصاميم احترافية</li>
                 <li>10 كتابة محتوى</li>
                 <li>2 ستوري + 1 ريلز</li>
             </ul>
@@ -227,6 +256,12 @@
     </div>
 
     <footer>
+        <div class="social-circles">
+            <a href="https://www.facebook.com/share/1BRpeMR4Hh" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/brand_up_advertising" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@brand_up_advertising" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/message/YOW5PA3ULKTLH1" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
         <p class="footer-text">Designed by <span>Brand Up</span></p>
     </footer>
 
@@ -235,14 +270,8 @@
             document.getElementById("sideNav").style.width = "280px";
             window.history.pushState({sideNav: "open"}, "");
         }
-
-        function closeNav() { 
-            document.getElementById("sideNav").style.width = "0";
-        }
-
-        window.onpopstate = function(event) {
-            closeNav();
-        };
+        function closeNav() { document.getElementById("sideNav").style.width = "0"; }
+        window.onpopstate = function(event) { closeNav(); };
     </script>
 </body>
 </html>
