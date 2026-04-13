@@ -124,6 +124,26 @@
         .gift-box { background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 10px; border-radius: 8px; font-size: 0.8rem; margin: 10px 0; font-weight: bold; }
         .wa-button { display: block; background: #25d366; color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; }
 
+        /* تذييل الصفحة (الفوتير) */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-text {
+            color: #555;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+
+        .footer-text span {
+            color: var(--gold);
+        }
+
         @media (max-width: 600px) {
             .packages-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
             .new-price { font-size: 1.5rem; }
@@ -196,7 +216,7 @@
                 <li>إدارة منصات السوشيال ميديا</li>
                 <li>تهيئة وتحسين المنصات</li>
                 <li>غلاف جديد للبيج</li>
-                <li>10 تصاميم احترافية</li>
+                <li>10 تصاميم احترافي</li>
                 <li>10 كتابة محتوى</li>
                 <li>2 ستوري + 1 ريلز</li>
             </ul>
@@ -206,8 +226,12 @@
     </div>
 
     <div style="text-align: center; padding: 40px; color: var(--gold); font-weight: bold;">
-        🔥 خصم 10% عند التعاقد لمدة 3 شهور!
+        🔥 خصم إضافي 10% عند التعاقد لمدة 3 شهور!
     </div>
+
+    <footer>
+        <p class="footer-text">Designed by <span>Brand Up</span></p>
+    </footer>
 
     <script>
         function openNav() { 
