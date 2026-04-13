@@ -27,11 +27,37 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* إضافة احترافية: خلفية متحركة خفيفة جداً */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(242, 183, 5, 0.05) 0%, transparent 80%);
+            z-index: -1;
+        }
+
+        .promo-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #000, #1a1a1a, #000);
+            color: var(--gold);
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            z-index: 3000;
+            border-bottom: 1px solid var(--gold);
+            box-shadow: 0 2px 15px rgba(242, 183, 5, 0.3);
+            font-size: 0.9rem;
         }
 
         .fixed-menu-btn {
             position: fixed;
-            top: 20px;
+            top: 60px;
             right: 20px;
             z-index: 1000;
             cursor: pointer;
@@ -42,13 +68,10 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
+            transition: 0.3s;
         }
 
-        .fixed-menu-btn span {
-            width: 25px; height: 3px;
-            background: var(--gold);
-            border-radius: 2px;
-        }
+        .fixed-menu-btn:hover { background: rgba(242, 183, 5, 0.2); }
 
         .sidebar {
             height: 100%; width: 0;
@@ -70,12 +93,15 @@
             color: #ccc;
             display: block;
             border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
         }
+        .sidebar a:hover { color: var(--gold); padding-right: 40px; }
 
         .sidebar h4 { color: var(--gold); padding: 0 30px; margin-top: 20px; margin-bottom: 10px; border-bottom: 1px solid var(--gold); display: inline-block; margin-right: 30px; }
         .sidebar .close-btn { position: absolute; top: 10px; left: 20px; font-size: 40px; color: var(--gold); cursor: pointer; }
 
-        header { text-align: center; padding: 40px 20px; }
+        header { text-align: center; padding: 100px 20px 40px; animation: fadeIn 1.5s ease; }
+        
         .logo-container {
             width: 130px;
             height: 130px;
@@ -84,7 +110,9 @@
             border: 2px solid var(--gold);
             overflow: hidden;
             box-shadow: 0 0 20px rgba(242, 183, 5, 0.2);
+            transition: 0.5s;
         }
+        .logo-container:hover { transform: scale(1.05) rotate(5deg); box-shadow: 0 0 30px rgba(242, 183, 5, 0.5); }
         .logo-container img { width: 100%; height: 100%; object-fit: cover; }
 
         .packages-grid {
@@ -94,6 +122,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             padding: 10px;
+            animation: slideUp 1s ease;
         }
 
         .package-card {
@@ -104,6 +133,16 @@
             text-align: center;
             display: flex;
             flex-direction: column;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* إضافة احترافية: توهج ذهبي عند اللمس */
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(242, 183, 5, 0.2);
         }
 
         .pkg-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; }
@@ -112,11 +151,17 @@
         .new-price { font-size: 2.2rem; font-weight: bold; color: var(--gold); display: block; }
 
         .details-list { list-style: none; padding: 0; text-align: right; font-size: 0.85rem; flex-grow: 1; }
-        .details-list li { padding: 8px 0; border-bottom: 1px solid #1a1a1a; }
+        .details-list li { padding: 8px 0; border-bottom: 1px solid #1a1a1a; transition: 0.3s; }
+        .package-card:hover .details-list li { border-bottom-color: rgba(242, 183, 5, 0.1); }
         .details-list li::before { content: "●"; color: var(--gold); margin-left: 8px; }
 
-        .gift-box { background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 10px; border-radius: 8px; font-size: 0.8rem; margin: 10px 0; font-weight: bold; }
-        .wa-button { display: block; background: #25d366; color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; }
+        .gift-box { background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 10px; border-radius: 8px; font-size: 0.8rem; margin: 10px 0; font-weight: bold; animation: pulse 2s infinite; }
+        
+        .wa-button { 
+            display: block; background: #25d366; color: #fff; text-decoration: none; padding: 12px; 
+            border-radius: 10px; font-weight: bold; transition: 0.3s;
+        }
+        .wa-button:hover { background: #1ebd58; transform: scale(1.05); }
 
         footer {
             text-align: center;
@@ -151,8 +196,8 @@
         .social-circles a:hover {
             border-color: var(--gold);
             color: var(--gold);
-            box-shadow: 0 0 10px rgba(242, 183, 5, 0.3);
-            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(242, 183, 5, 0.4);
+            transform: rotate(360deg) scale(1.1);
         }
 
         .footer-text {
@@ -162,17 +207,27 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-
         .footer-text span { color: var(--gold); }
+
+        /* الأنميشن */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes pulse { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
 
         @media (max-width: 600px) {
             .packages-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
             .new-price { font-size: 1.5rem; }
             .details-list { font-size: 0.75rem; }
+            header { padding: 90px 20px 30px; }
+            .fixed-menu-btn { top: 55px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="promo-bar">
+        🔥 خصم إضافي 10% عند التعاقد لمدة 3 شهور!
+    </div>
 
     <div class="fixed-menu-btn" onclick="openNav()">
         <span></span><span></span><span></span>
@@ -206,7 +261,7 @@
         <p style="color: var(--gold); margin: 5px 0; font-weight: bold;">ELEVATE YOUR BUSINESS</p>
     </header>
 
-    <h3 style="text-align: center;">باقات السوشيال ميديا</h3>
+    <h3 style="text-align: center; margin-bottom: 20px;">باقات السوشيال ميديا</h3>
 
     <div class="packages-grid">
         <div class="package-card">
@@ -246,9 +301,7 @@
         </div>
     </div>
 
-    <div style="text-align: center; padding: 40px; color: var(--gold); font-weight: bold;">
-        🔥 خصم إضافي 10% عند التعاقد لمدة 3 شهور!
-    </div>
+    <div style="height: 60px;"></div>
 
     <footer>
         <div class="social-circles">
