@@ -1,259 +1,41 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Up | وكالة براند آب للدعاية والإعلان</title>
-    <!-- استيراد الخطوط والأيقونات -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
-    <style>
-        :root {
-            --primary-color: #d4ff00; /* اللون الفسفوري للبراند */
-            --bg-dark: #0a0a0a;
-            --card-bg: #1a1a1a;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, #111, var(--bg-dark));
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: 2px;
-        }
-
-        header h1 span {
-            color: var(--primary-color);
-        }
-
-        header p {
-            color: var(--text-gray);
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            width: 50%;
-            height: 4px;
-            background: var(--primary-color);
-            position: absolute;
-            bottom: -10px;
-            left: 25%;
-        }
-
-        /* تنسيق الباقات */
-        .packages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            border: 1px solid #333;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-        }
-
-        .card.popular {
-            border: 2px solid var(--primary-color);
-        }
-
-        .card.popular::before {
-            content: 'الأكثر طلباً';
-            position: absolute;
-            top: 20px;
-            left: -30px;
-            background: var(--primary-color);
-            color: #000;
-            padding: 5px 40px;
-            transform: rotate(-45deg);
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-
-        .price span {
-            font-size: 1rem;
-            color: var(--text-gray);
-        }
-
-        .features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 40px;
-            text-align: right;
-        }
-
-        .features li {
-            margin-bottom: 15px;
-            color: var(--text-gray);
-            display: flex;
-            align-items: center;
-        }
-
-        .features li i {
-            color: var(--primary-color);
-            margin-left: 10px;
-        }
-
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--primary-color);
-            color: #000;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: background 0.3s ease;
-            width: 100%;
-        }
-
-        .btn-whatsapp i {
-            margin-left: 10px;
-            font-size: 1.3rem;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #fff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-gray);
-            border-top: 1px solid #222;
-            margin-top: 60px;
-        }
-
-        /* رسالة تأكيد بسيطة */
-        .contact-info {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .contact-info p {
-            margin: 5px 0;
-            color: var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .card { margin: 10px; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>BRAND <span>UP</span></h1>
-        <p>وكالة الدعاية والإعلان الأسرع نمواً في الزقازيق</p>
-    </header>
-
-    <div class="container">
-        <div class="section-title">
-            <h2>باقاتنا الاحترافية</h2>
+<section class="packages">
+    <h2 style="text-align:center; color: #fff; margin-bottom: 30px;">باقاتنا المميزة</h2>
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 20px;">
+        
+        <div style="background: #fff; border-radius: 15px; padding: 20px; width: 300px; text-align: center; border-top: 8px solid #cd7f32; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <h3 style="color: #333;">BRONZE Package</h3>
+            <div style="font-size: 32px; color: #ff4500; font-weight: bold;">3500 ج.م</div>
+            <p style="text-decoration: line-through; color: #888;">بدلاً من 7000 ج.م</p>
+            <ul style="text-align: right; list-style: none; padding: 0; color: #444; line-height: 1.8;">
+                <li>✅ إدارة منصات السوشيال ميديا</li>
+                <li>✅ 10 تصاميم احترافية</li>
+                <li>✅ 10 كتابة محتوى إبداعي</li>
+                <li>✅ فيديو ريلز واحد + 2 ستوري</li>
+                <li>🎁 هدية: تزويد 1000 متابع فيسبوك</li>
+            </ul>
+            <a href="https://wa.me/201272785618?text=أهلاً Brand Up، أريد الاستفسار عن باقة Bronze Package" 
+               style="display: block; background: #25d366; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px;">
+               اشترك الآن عبر واتساب
+            </a>
         </div>
 
-        <div class="packages">
-            <!-- الباقة الأولى -->
-            <div class="card">
-                <h3>باقة Starter</h3>
-                <div class="price">حدد سعرك <span>/ شهرياً</span></div>
-                <ul class="features">
-                    <li><i class="fas fa-check-circle"></i> تصميم هوية بصرية أساسية</li>
-                    <li><i class="fas fa-check-circle"></i> إدارة صفحتين سوشيال ميديا</li>
-                    <li><i class="fas fa-check-circle"></i> 12 تصميم احترافي</li>
-                    <li><i class="fas fa-check-circle"></i> كتابة محتوى تسويقي</li>
-                </ul>
-                <a href="https://wa.me/201272785618?text=أهلاً Brand Up، أريد الاستفسار عن باقة Starter" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> اطلب الباقة الآن
-                </a>
-            </div>
-
-            <!-- الباقة الثانية -->
-            <div class="card popular">
-                <h3>باقة Enterprise</h3>
-                <div class="price">حدد سعرك <span>/ شهرياً</span></div>
-                <ul class="features">
-                    <li><i class="fas fa-check-circle"></i> هوية بصرية كاملة (Rebranding)</li>
-                    <li><i class="fas fa-check-circle"></i> إدارة كاملة لجميع المنصات</li>
-                    <li><i class="fas fa-check-circle"></i> 30 تصميم + 8 فيديوهات Reels</li>
-                    <li><i class="fas fa-check-circle"></i> مخرج إبداعي مخصص لمشروعك</li>
-                </ul>
-                <a href="https://wa.me/201272785618?text=أهلاً Brand Up، أريد الاستفسار عن باقة Enterprise الاحترافية" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> اطلب الباقة الآن
-                </a>
-            </div>
+        <div style="background: #fff; border-radius: 15px; padding: 20px; width: 300px; text-align: center; border-top: 8px solid #c0c0c0; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <h3 style="color: #333;">SILVER Package</h3>
+            <div style="font-size: 32px; color: #ff4500; font-weight: bold;">5500 ج.م</div>
+            <p style="text-decoration: line-through; color: #888;">بدلاً من 11000 ج.م</p>
+            <ul style="text-align: right; list-style: none; padding: 0; color: #444; line-height: 1.8;">
+                <li>✅ إدارة منصات السوشيال ميديا</li>
+                <li>✅ 14 تصميم احترافي</li>
+                <li>✅ 14 كتابة محتوى إبداعي</li>
+                <li>✅ فيديو ريلز واحد + 2 ستوري + بوست GIF</li>
+                <li>🎁 هدية: تزويد 1000 متابع فيسبوك</li>
+            </ul>
+            <a href="https://wa.me/201272785618?text=أهلاً Brand Up، أريد الاستفسار عن باقة Silver Package" 
+               style="display: block; background: #25d366; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px;">
+               اشترك الآن عبر واتساب
+            </a>
         </div>
 
-        <div class="contact-info">
-            <h3>تواصل معنا مباشرة</h3>
-            <p><i class="fas fa-phone"></i> 01272785618 | 01019482687</p>
-            <p><i class="fas fa-map-marker-alt"></i> الزقازيق - الشرقية</p>
-        </div>
     </div>
-
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2024 لشركة Brand Up Advertising</p>
-    </footer>
-
-</body>
-</html>
+    <p style="text-align: center; color: #ffd700; font-weight: bold; margin-top: 15px;">خصم إضافي 10% عند التعاقد لمدة 3 شهور!</p>
+</section>
