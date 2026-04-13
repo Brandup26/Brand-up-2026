@@ -3,52 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Up - Elevate Your Business</title>
+    <title>Brand Up | Elevate Your Business</title>
     <style>
         :root {
-            --bg-color: #080808;
-            --card-bg: #121212;
             --gold: #f2b705;
-            --silver: #e0e0e0;
-            --bronze: #cd7f32;
-            --text: #ffffff;
-            --whatsapp: #25d366;
+            --bg-black: #0a0a0a;
+            --card-bg: #141414;
+            --text-white: #ffffff;
         }
 
         body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
             font-family: 'Segoe UI', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text);
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
-        /* زر الثلاث شرط الاحترافي */
-        .menu-trigger {
+        /* زر القائمة - 3 شرط ثابتة */
+        .fixed-menu-btn {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1000;
             cursor: pointer;
-            background: rgba(242, 183, 5, 0.15);
-            padding: 12px;
-            border-radius: 12px;
+            background: rgba(242, 183, 5, 0.1);
             border: 1px solid var(--gold);
+            padding: 10px;
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
             gap: 5px;
-            transition: 0.3s;
         }
 
-        .menu-trigger span {
+        .fixed-menu-btn span {
             width: 25px;
             height: 3px;
-            background-color: var(--gold);
+            background: var(--gold);
             border-radius: 2px;
-            transition: 0.3s;
         }
-
-        .menu-trigger:hover { background: rgba(242, 183, 5, 0.3); }
 
         /* القائمة الجانبية */
         .sidebar {
@@ -58,174 +52,177 @@
             z-index: 2000;
             top: 0;
             right: 0;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
             overflow-x: hidden;
-            transition: 0.5s ease-in-out;
+            transition: 0.5s;
             padding-top: 60px;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.9);
         }
 
         .sidebar a {
-            padding: 15px 30px;
+            padding: 15px 32px;
             text-decoration: none;
             font-size: 1.1rem;
-            color: #ddd;
+            color: #ccc;
             display: block;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
             transition: 0.3s;
+            text-align: right;
         }
 
-        .sidebar a:hover { color: var(--gold); background: rgba(255,215,0,0.05); padding-right: 40px; }
-        .sidebar h4 { color: var(--gold); padding: 0 30px; margin-top: 30px; font-size: 1.2rem; }
-        .sidebar .closebtn { position: absolute; top: 10px; left: 20px; font-size: 45px; color: var(--gold); cursor: pointer; }
+        .sidebar a:hover { color: var(--gold); background: rgba(255,255,255,0.05); }
+        .sidebar .close-btn { position: absolute; top: 10px; left: 20px; font-size: 40px; color: var(--gold); }
 
         /* الهيدر */
-        header { text-align: center; padding: 60px 20px; }
-        .logo-box { width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; }
-        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
-        header h1 { font-size: 2.5rem; margin: 0; letter-spacing: 3px; }
-        header p { color: var(--gold); letter-spacing: 1px; }
+        header { text-align: center; padding: 40px 20px; }
+        .main-logo { width: 150px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 15px; }
 
-        /* عرض الباقات جنب بعض */
-        .container {
-            max-width: 1200px;
+        /* حاوية الباقات - جنب بعض تماماً */
+        .packages-grid {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: row; /* إجبارهم يبقوا جنب بعض */
-            flex-wrap: nowrap; /* يمنع النزول تحت بعض في الشاشات المتوسطة */
-            gap: 20px;
-            justify-content: center;
-            overflow-x: auto; /* يسمح بالسحب لو الشاشة ضيقة جداً */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* باقتين جنب بعض بالظبط */
+            gap: 15px;
+            padding: 10px;
         }
 
         .package-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            min-width: 340px; /* عرض ثابت لضمان الاحترافية */
-            flex: 1;
-            padding: 30px;
             border: 1px solid #222;
-            transition: 0.4s;
-            position: relative;
-        }
-
-        .package-card:hover { border-color: var(--gold); transform: translateY(-10px); }
-
-        .price-area { margin: 25px 0; }
-        .old-price { text-decoration: line-through; color: #666; font-size: 1.1rem; }
-        .new-price { font-size: 2.8rem; font-weight: bold; color: var(--gold); display: block; }
-
-        .features { text-align: right; list-style: none; padding: 0; margin-bottom: 30px; }
-        .features li { padding: 8px 0; border-bottom: 1px solid #1a1a1a; font-size: 0.95rem; }
-        .features li::before { content: "✔"; color: var(--gold); margin-left: 10px; }
-
-        .gift { color: #00d2ff; font-weight: bold; font-size: 0.9rem; }
-
-        .btn-order {
-            display: block;
-            background: var(--whatsapp);
-            color: #fff;
+            border-radius: 15px;
+            padding: 20px;
             text-align: center;
-            padding: 15px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
+            position: relative;
+            transition: 0.3s;
         }
 
-        /* الموبايل */
-        @media (max-width: 768px) {
-            .container { flex-direction: column; flex-wrap: wrap; align-items: center; }
-            .package-card { width: 90%; min-width: unset; }
+        .package-card:hover { border-color: var(--gold); transform: scale(1.02); }
+
+        .pkg-title { font-size: 1.5rem; margin-bottom: 10px; font-weight: bold; }
+        .bronze-color { color: #cd7f32; }
+        .silver-color { color: #e0e0e0; }
+
+        .price-tag { margin: 15px 0; }
+        .old-price { text-decoration: line-through; color: #777; font-size: 0.9rem; }
+        .new-price { font-size: 2.2rem; font-weight: bold; color: var(--gold); display: block; }
+
+        .details-list {
+            list-style: none;
+            padding: 0;
+            text-align: right;
+            font-size: 0.85rem;
+        }
+
+        .details-list li {
+            padding: 6px 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .details-list li::before { content: "●"; color: var(--gold); margin-left: 8px; }
+
+        .gift-box { background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 8px; border-radius: 5px; font-weight: bold; margin-top: 10px; font-size: 0.8rem; }
+
+        .wa-button {
+            display: block;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* للموبايل: نخليهم جنب بعض برضه بس نصغر الخط */
+        @media (max-width: 600px) {
+            .packages-grid { gap: 8px; padding: 5px; }
+            .package-card { padding: 12px; }
+            .new-price { font-size: 1.5rem; }
+            .pkg-title { font-size: 1.1rem; }
+            .details-list { font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="menu-trigger" onclick="openNav()">
+    <div class="fixed-menu-btn" onclick="openNav()">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <div id="mySidebar" class="sidebar">
-        <span class="closebtn" onclick="closeNav()">&times;</span>
-        
-        <h4>خدماتنا الاحترافية</h4>
-        <a href="#">🎨 تصميم هوية بصرية</a>
-        <a href="#">📱 إدارة السوشيال ميديا</a>
-        <a href="#">🖌️ جرافيك ديزاين</a>
-        <a href="#">🎬 مونتاج وفيديو ريلز</a>
-
-        <h4>تواصل معنا</h4>
-        <a href="tel:01272785618">📞 01272785618</a>
-        <a href="tel:01019482687">📞 01019482687</a>
-        <a href="https://wa.me/message/YOW5PA3ULKTLH1">💬 واتساب مباشر</a>
-        
-        <h4>موقعنا</h4>
-        <a href="#">📍 الشرقية - الزقازيق</a>
+    <div id="sideNav" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://i.ibb.co/XkyV7R0/1000155098.jpg" width="80" style="border-radius: 50%;">
+        </div>
+        <a href="#">🏠 الرئيسية</a>
+        <a href="#">🎨 خدمات التصميم</a>
+        <a href="#">📱 إدارة الصفحات</a>
+        <a href="https://wa.me/201272785618">📞 تواصل معنا</a>
+        <div style="padding: 20px; font-size: 0.8rem; color: #666; text-align: center;">
+            الشرقية - الزقازيق
+        </div>
     </div>
 
     <header>
-        <div class="logo-box">
-            <img src="https://i.ibb.co/XkyV7R0/1000155098.jpg" alt="Logo">
-        </div>
-        <h1>BRAND UP</h1>
-        <p>ELEVATE YOUR BUSINESS</p>
+        <img src="https://i.ibb.co/XkyV7R0/1000155098.jpg" class="main-logo" alt="Brand Up">
+        <h1 style="margin: 0; letter-spacing: 2px;">BRAND UP</h1>
+        <p style="color: var(--gold); margin: 5px 0;">ELEVATE YOUR BUSINESS</p>
     </header>
 
-    <h2 style="text-align: center; margin-bottom: 30px;">باقات السوشيال ميديا</h2>
+    <h3 style="text-align: center; margin-bottom: 20px;">باقات السوشيال ميديا</h3>
 
-    <div class="container">
+    <div class="packages-grid">
         
-        <div class="package-card" style="border-top: 4px solid var(--bronze);">
-            <h2 style="color: var(--bronze); margin: 0;">BRONZE Package</h2>
-            <div class="price-area">
-                <span class="old-price">بدلاً من 7000 ج.م</span>
+        <div class="package-card">
+            <div class="pkg-title bronze-color">BRONZE</div>
+            <div class="price-tag">
+                <span class="old-price">7000 ج.م</span>
                 <span class="new-price">3500 ج.م</span>
             </div>
-            <ul class="features">
+            <ul class="details-list">
                 <li>إدارة منصات السوشيال ميديا</li>
-                <li>تهيئة وتحسين كامل للمنصات</li>
+                <li>تهيئة وتحسين المنصات</li>
                 <li>غلاف جديد للبيج</li>
                 <li>10 تصاميم احترافية</li>
-                <li>10 كتابة محتوى إبداعي</li>
-                <li>2 ستوري + 1 فيديو ريلز</li>
-                <li>حملة إعلانية بـ 500 ج.م</li>
-                <li class="gift">🎁 هدية: 1000 متابع فيسبوك</li>
+                <li>10 كتابة محتوى</li>
+                <li>2 ستوري + 1 ريلز</li>
+                <li>إعلان ممول بـ 500 ج</li>
             </ul>
-            <a href="https://wa.me/201272785618" class="btn-order">اطلب الباقة الآن</a>
+            <div class="gift-box">🎁 +1000 متابع فيسبوك مجاناً</div>
+            <a href="https://wa.me/201272785618" class="wa-button">اطلب الآن</a>
         </div>
 
-        <div class="package-card" style="border-top: 4px solid var(--silver);">
-            <h2 style="color: var(--silver); margin: 0;">SILVER Package</h2>
-            <div class="price-area">
-                <span class="old-price">بدلاً من 11000 ج.م</span>
+        <div class="package-card">
+            <div class="pkg-title silver-color">SILVER</div>
+            <div class="price-tag">
+                <span class="old-price">11000 ج.م</span>
                 <span class="new-price">5500 ج.م</span>
             </div>
-            <ul class="features">
+            <ul class="details-list">
                 <li>إدارة منصات السوشيال ميديا</li>
-                <li>تهيئة وتحسين كامل للمنصات</li>
+                <li>تهيئة وتحسين المنصات</li>
                 <li>غلاف جديد للبيج</li>
                 <li>14 تصميم احترافي</li>
-                <li>14 كتابة محتوى إبداعي</li>
+                <li>14 كتابة محتوى</li>
                 <li>2 ستوري + 1 ريلز + 1 GIF</li>
-                <li>حملة إعلانية بـ 1000 ج.م</li>
-                <li class="gift">🎁 هدية: 1000 متابع فيسبوك</li>
+                <li>إعلان ممول بـ 1000 ج</li>
             </ul>
-            <a href="https://wa.me/201272785618" class="btn-order">اطلب الباقة الآن</a>
+            <div class="gift-box">🎁 +1000 متابع فيسبوك مجاناً</div>
+            <a href="https://wa.me/201272785618" class="wa-button">اطلب الآن</a>
         </div>
 
     </div>
 
-    <div style="text-align: center; padding: 40px; color: var(--gold); font-weight: bold;">
-        خصم 10% عند التعاقد لمدة 3 شهور!
+    <div style="text-align: center; margin-top: 30px; padding: 20px;">
+        <p style="color: var(--gold); font-weight: bold;">🔥 خصم 10% عند التعاقد لمدة 3 شهور!</p>
     </div>
 
     <script>
-        function openNav() { document.getElementById("mySidebar").style.width = "300px"; }
-        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+        function openNav() { document.getElementById("sideNav").style.width = "280px"; }
+        function closeNav() { document.getElementById("sideNav").style.width = "0"; }
     </script>
 </body>
 </html>
