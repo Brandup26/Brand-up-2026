@@ -8,7 +8,6 @@
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
     <meta property="og:image" content="logo.jpg">
-    <meta property="og:title" content="Brand Up Marketing">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -24,12 +23,12 @@
             background-color: var(--bg-black);
             color: var(--text-white);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             overflow-x: hidden;
             position: relative;
         }
 
+        /* خلفية نيون خفيفة */
         body::before {
             content: "";
             position: fixed;
@@ -52,32 +51,21 @@
             font-size: 0.9rem;
         }
 
+        /* زر المنيو الذهبي */
         .fixed-menu-btn {
             position: fixed;
-            top: 65px;
-            right: 20px;
+            top: 65px; right: 20px;
             z-index: 4500;
             cursor: pointer;
             background: var(--gold);
-            width: 45px;
-            height: 45px;
+            width: 45px; height: 45px;
             border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 5px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: 0.3s;
         }
 
-        .fixed-menu-btn span {
-            width: 25px; 
-            height: 3px;
-            background: #000;
-            border-radius: 2px;
-            display: block;
-        }
+        .fixed-menu-btn span { width: 25px; height: 3px; background: #000; border-radius: 2px; }
 
         .sidebar {
             height: 100%; width: 0;
@@ -92,26 +80,53 @@
             border-left: 1px solid rgba(242, 183, 5, 0.3);
         }
 
-        .sidebar a {
-            padding: 12px 30px;
-            text-decoration: none;
-            font-size: 1rem;
-            color: #ccc;
-            display: block;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
-        }
-        .sidebar a:hover { color: var(--gold); padding-right: 40px; }
+        .sidebar a { padding: 12px 30px; text-decoration: none; font-size: 1rem; color: #ccc; display: block; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .sidebar h4 { color: var(--gold); padding: 0 30px; margin-top: 20px; border-bottom: 1px solid var(--gold); display: inline-block; margin-right: 30px; }
         .sidebar .close-btn { position: absolute; top: 10px; left: 20px; font-size: 40px; color: var(--gold); cursor: pointer; }
 
         header { text-align: center; padding: 120px 20px 40px; }
-        .logo-container { width: 130px; height: 130px; margin: 0 auto 15px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; box-shadow: 0 0 20px rgba(242, 183, 5, 0.2); }
+        
+        /* أنميشن اللوجو */
+        .logo-container {
+            width: 130px; height: 130px; margin: 0 auto 15px;
+            border-radius: 50%; border: 2px solid var(--gold);
+            overflow: hidden; box-shadow: 0 0 20px rgba(242, 183, 5, 0.2);
+            animation: zoomIn 1s ease-out;
+        }
         .logo-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        .packages-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px; }
-        .package-card { background: var(--card-bg); border: 1px solid #222; border-radius: 15px; padding: 20px; text-align: center; display: flex; flex-direction: column; transition: 0.4s; position: relative; }
-        .package-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(242, 183, 5, 0.2); }
+        /* تأثير كتابة النص */
+        .typing-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            overflow: hidden;
+            border-left: 3px solid var(--gold);
+            white-space: nowrap;
+            margin: 0 auto;
+            display: table;
+            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+        }
+
+        .packages-grid {
+            max-width: 1000px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 15px; padding: 10px;
+        }
+
+        .package-card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .package-card:nth-child(1) { animation-delay: 0.5s; }
+        .package-card:nth-child(2) { animation-delay: 0.8s; }
 
         .pkg-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; }
         .new-price { font-size: 2.2rem; font-weight: bold; color: var(--gold); display: block; }
@@ -122,18 +137,23 @@
         .details-list li::before { content: "●"; color: var(--gold); margin-left: 8px; }
 
         .gift-box { background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 10px; border-radius: 8px; font-size: 0.8rem; margin: 10px 0; font-weight: bold; animation: pulse 2s infinite; }
-        .wa-button { display: block; background: #25d366; color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; transition: 0.3s; }
+        .wa-button { display: block; background: #25d366; color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; }
 
         footer { text-align: center; padding: 40px 20px; background: #050505; border-top: 1px solid rgba(242, 183, 5, 0.1); margin-top: 20px; }
         .social-circles { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
-        .social-circles a { width: 45px; height: 45px; border-radius: 50%; background: #111; border: 1px solid #333; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s; }
+        .social-circles a { width: 45px; height: 45px; border-radius: 50%; background: #111; border: 1px solid #333; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; }
 
+        /* الأنميشن المستعملة */
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--gold); } }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
         @keyframes pulse { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
 
         @media (max-width: 600px) {
             .packages-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
             .new-price { font-size: 1.5rem; }
-            header { padding: 110px 20px 30px; }
+            .typing-text { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -160,45 +180,42 @@
         <h4>تواصل معنا</h4>
         <a href="tel:01272785618">📞 01272785618</a>
         <a href="tel:01019482687">📞 01019482687</a>
-        <a href="https://wa.me/201019482687">💬 واتساب الوكالة</a>
     </div>
 
     <header>
-        <div class="logo-container"><img src="logo.jpg" alt="Brand Up Logo"></div>
-        <h1 style="margin: 0; letter-spacing: 2px;">BRAND UP</h1>
-        <p style="color: var(--gold); margin: 5px 0; font-weight: bold;">ELEVATE YOUR BUSINESS</p>
+        <div class="logo-container"><img src="logo.jpg" alt="Logo"></div>
+        <div class="typing-text">BRAND UP</div>
+        <p style="color: var(--gold); font-weight: bold; margin-top: 10px;">ELEVATE YOUR BUSINESS</p>
     </header>
 
     <h3 style="text-align: center; margin-bottom: 20px;">باقات السوشيال ميديا</h3>
 
     <div class="packages-grid">
         <div class="package-card">
-            <div class="pkg-title" style="color: #e0e0e0;">SILVER</div>
+            <div class="pkg-title">SILVER</div>
             <div class="price-tag">
                 <span class="old-price">11000 ج.م</span>
                 <span class="new-price">5500 ج.م</span>
             </div>
             <ul class="details-list">
                 <li>إدارة منصات السوشيال ميديا</li>
-                <li>تهيئة وتحسين المنصات</li>
                 <li>غلاف جديد للبيج</li>
                 <li>14 تصميم احترافي</li>
                 <li>14 كتابة محتوى</li>
-                <li>2 ستوري + 1 ريلز + 1 GIF</li>
+                <li>2 ستوري + 1 ريلز</li>
             </ul>
             <div class="gift-box">🎁 +1000 متابع فيسبوك مجاناً</div>
             <a href="https://wa.me/201019482687" class="wa-button">اطلب الآن</a>
         </div>
 
         <div class="package-card">
-            <div class="pkg-title" style="color: #cd7f32;">BRONZE</div>
+            <div class="pkg-title">BRONZE</div>
             <div class="price-tag">
                 <span class="old-price">7000 ج.م</span>
                 <span class="new-price">3500 ج.م</span>
             </div>
             <ul class="details-list">
                 <li>إدارة منصات السوشيال ميديا</li>
-                <li>تهيئة وتحسين المنصات</li>
                 <li>غلاف جديد للبيج</li>
                 <li>10 تصاميم احترافية</li>
                 <li>10 كتابة محتوى</li>
@@ -220,26 +237,15 @@
     </footer>
 
     <script>
-        // التعديل هنا لضمان عدم الخروج من الموقع عند ضغط زر الرجوع
         function openNav() { 
             document.getElementById("sideNav").style.width = "280px";
-            // نقوم بإضافة حالة للسجل لكي يتمكن زر الرجوع من إغلاق المنيو بدلاً من الخروج
             window.history.pushState({menuOpen: true}, "");
         }
-
         function closeNav() { 
             document.getElementById("sideNav").style.width = "0";
-            // إذا كان المستخدم يغلق يدوياً بالـ X، نتأكد من تنظيف السجل
-            if (window.history.state && window.history.state.menuOpen) {
-                window.history.back();
-            }
+            if (window.history.state && window.history.state.menuOpen) { window.history.back(); }
         }
-
-        // الاستماع لحدث ضغط زر الرجوع في الهاتف
-        window.onpopstate = function(event) {
-            // عند ضغط زر الرجوع، نغلق القائمة
-            document.getElementById("sideNav").style.width = "0";
-        };
+        window.onpopstate = function() { document.getElementById("sideNav").style.width = "0"; };
     </script>
 </body>
 </html>
