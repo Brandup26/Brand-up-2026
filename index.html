@@ -30,7 +30,6 @@
             position: relative;
         }
 
-        /* إضافة احترافية: خلفية متحركة خفيفة جداً */
         body::before {
             content: "";
             position: fixed;
@@ -41,9 +40,7 @@
 
         .promo-bar {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+            top: 0; left: 0; width: 100%;
             background: linear-gradient(90deg, #000, #1a1a1a, #000);
             color: var(--gold);
             text-align: center;
@@ -69,6 +66,15 @@
             flex-direction: column;
             gap: 5px;
             transition: 0.3s;
+        }
+
+        /* التعديل المطلوب هنا ليظهروا الثلاث شرط */
+        .fixed-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--gold);
+            border-radius: 2px;
+            display: block;
         }
 
         .fixed-menu-btn:hover { background: rgba(242, 183, 5, 0.2); }
@@ -138,7 +144,6 @@
             overflow: hidden;
         }
 
-        /* إضافة احترافية: توهج ذهبي عند اللمس */
         .package-card:hover {
             transform: translateY(-10px);
             border-color: var(--gold);
@@ -209,7 +214,6 @@
         }
         .footer-text span { color: var(--gold); }
 
-        /* الأنميشن */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes pulse { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
@@ -279,7 +283,7 @@
                 <li>2 ستوري + 1 ريلز + 1 GIF</li>
             </ul>
             <div class="gift-box">🎁 +1000 متابع فيسبوك مجاناً</div>
-            <a href="https://api.whatsapp.com/send?phone=201019482687&text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20Brand%20Up%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%A7%D9%82%D8%A9%20SILVER" class="wa-button">اطلب الآن</a>
+            <a href="https://api.whatsapp.com/send?phone=201019482687&text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20Brand%20Up" class="wa-button">اطلب الآن</a>
         </div>
 
         <div class="package-card">
@@ -297,7 +301,7 @@
                 <li>2 ستوري + 1 ريلز</li>
             </ul>
             <div class="gift-box">🎁 +1000 متابع فيسبوك مجاناً</div>
-            <a href="https://api.whatsapp.com/send?phone=201019482687&text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20Brand%20Up%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%A7%D9%82%D8%A9%20BRONZE" class="wa-button">اطلب الآن</a>
+            <a href="https://api.whatsapp.com/send?phone=201019482687&text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20Brand%20Up" class="wa-button">اطلب الآن</a>
         </div>
     </div>
 
@@ -305,10 +309,10 @@
 
     <footer>
         <div class="social-circles">
-            <a href="https://www.facebook.com/share/1BRpeMR4Hh" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/brand_up_advertising" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@brand_up_advertising" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/201019482687" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/1BRpeMR4Hh" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/brand_up_advertising" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@brand_up_advertising" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/201019482687" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
         <p class="footer-text">Designed by <span>Brand Up</span></p>
     </footer>
